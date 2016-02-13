@@ -3,7 +3,7 @@ Local NTP (LNTP)
 Author: Zhou Fang (zhoufang@ucsd.edu)
 Reference: 
 1. NTPv4: https://www.eecis.udel.edu/~mills/database/reports/ntp4/ntp4.pdf
-2. Use some source code from: http://blog.csdn.net/rich_baba/article/details/6052863
+2. Use part of source code from: http://blog.csdn.net/rich_baba/article/details/6052863
 
 RUN:
 
