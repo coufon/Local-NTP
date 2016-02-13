@@ -1,0 +1,36 @@
+Local NTP (LNTP)
+
+Author: Zhou Fang (zhoufang@ucsd.edu)
+Reference: 
+1. NTPv4: https://www.eecis.udel.edu/~mills/database/reports/ntp4/ntp4.pdf
+2. Use some source code from: http://blog.csdn.net/rich_baba/article/details/6052863
+
+RUN:
+
+build by 'build.sh'
+run 'client' / 'server'
+
+SETUP:
+
+1. IP address of NTP Server (Time Master): 
+	set IP in 'ntpconfig.h': 
+	#define  DEF_NTP_SERVER0  "IP"
+
+2. The client send 'N_sample' requests continuously
+	set up 'N_sample' in 'ntpconfig.h':
+	#define  NTP_SAMPLE 'N_sample'
+
+3. 'N_sample' responses will be provided by server, they are processed by NTP algorithm
+	MIN_NTP_SAMPLE  in 'ntpconfig.h': minimal number of successfully received responses to start NTP alorithm at client
+	N_MIN_SURVIVOR in 'ntpconfig.h': minimal number of 'survivor' in NTP algorithm to get a synchronization result
+
+4. Parameters
+	DEF_PSEC in 'ntpconfig.h': period of NTP synchronization in seconds at client
+	DEF_TIMEOUT in 'ntpconfig.h': timeout of receiving NTP response at client
+	PREC in 'ntpconfig.h': client local clock precision 2^PREC
+	DRIFT in 'ntpconfig.h': client local clock drift
+
+	DEBUG in 'ntpconfig.h': print algorithm running information
+	RECORD in 'ntpconfig.h': write synchronization result into file
+	
+	CLOCK_REAL in 'ntpconfig.h': use REALTIME clock, otherwise MONOTONIC_RAW (unavailable for now)
